@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y curl jq apt-transport-https ca-certific
 # install Azure CLI
 # https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt#option-1-install-with-one-command
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash && curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+RUN az aks install-cli
 
 RUN  curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
